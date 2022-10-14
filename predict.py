@@ -73,7 +73,6 @@ class Predictor(BasePredictor):
             model.split("|")[0], custom_model, self.RUN_PATH
         )
         if load_error is not None:
-            print(f'{load_error}')
             return [
                 None,
                 load_error,

@@ -46,10 +46,8 @@ def generate_audio(
     global tnmodels, tnpath, tndurs, tnpitch, voc, last_voc, sr_voc, rec_voc
 
     if model is None:
-        print('before1')
         return [None, "No character selected", playback_hide, None]
     if transcript is None or transcript.strip() == "":
-        print('before2')
         return [
             None,
             "No transcript entered",
@@ -60,7 +58,6 @@ def generate_audio(
         model.split("|")[0], custom_model, RUN_PATH
     )
     if load_error is not None:
-        print(f'before3: {load_error}')
         return [
             None,
             load_error,
@@ -101,7 +98,6 @@ def generate_audio(
         try:
             token_list, tokens, arpa = extract_dur.get_tokens(transcript)
             if tndurs is None or tnpitch is None:
-                print('before4')
                 return [
                     None,
                     "Model doesn't support pitch prediction",
